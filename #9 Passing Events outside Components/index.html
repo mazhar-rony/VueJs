@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <div class="col-lg-4">
+                <sidebar v-model="value"></sidebar>
+                <br>
+                <label for="">Outside Input Box</label>
+                <input type="text" class="form-control" v-model="value">
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        Vue.component('sidebar', {
+           
+            template: `
+                <div>
+                    <label for="">Component Input Box</label>
+                    <input type="text" class="form-control" v-model="valueC" v-on:input="change(valueC)">
+                </div>
+            `,
+
+            data() {
+               return {
+                   valueC: ''
+               }
+            },
+
+            methods: {
+                change(valueC){
+                    return this.$emit('input', valueC);
+                }
+            }
+        })
+
+        new Vue ({
+            el: '#app',
+
+            data: {
+                value: ''
+            },
+        });
+
+    </script>
+</body>
+</html>

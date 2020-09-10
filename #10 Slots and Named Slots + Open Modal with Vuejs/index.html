@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css" integrity="sha512-ADrqa2PY1TZtb/MoLZIZu/Z/LlPaWQeDMBV73EMwjGam43/JJ5fqW38Rq8LJOVGCDfrJeOMS3Q/wRUVzW5DkjQ==" crossorigin="anonymous" />
+</head>
+<body>
+
+    <div class="container" id="app">
+        <br>
+        <btn @button_clicked="launchModal"></btn>
+
+        <modal :active="activateModal" @close_modal="close">
+            Vue Tutorial
+
+            <template slot="section">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero repudiandae optio, sit reiciendis nobis earum consectetur ipsum quas similique sapiente harum fugiat aliquid. Corrupti, odio fuga veritatis veniam mollitia numquam?
+            </template>
+            
+        </modal>
+
+    </div>
+
+      <script src="vue.js"></script>
+</body>
+</html>

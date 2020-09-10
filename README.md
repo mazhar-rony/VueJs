@@ -1,0 +1,1 @@
+Vue.js explained and a simple form validation project done

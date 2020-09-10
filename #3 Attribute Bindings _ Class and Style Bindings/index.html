@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <!-- 'v-bind:class' can be written as ':class' -->
+            <!-- <h3 v-bind:class="{className: isActive}">Speed of Light</h3> -->
+            <h3 :class="{'alert alert-success': isActive, 'col-lg-6': isMin}">Speed of Light</h3>
+            <br>
+            <h3 :style="styleSection" :title="title">Speed of Sound</h3>
+            <br>
+            <h3 :class="[isActive ? 'alert alert-success' : 'alert alert-danger']">Speed of Universe</h3>
+        </div>
+    </div>
+
+    <script>
+
+        new Vue ({
+            el: '#app',
+
+            data: {
+                //className: 'alert alert-success',
+                styleSection: {
+                    color: 'red',
+                    border: '2px solid black'
+                },
+                title: 'This is the title of Speed of Sound',
+                isActive: true,
+                isMin: true
+            },
+            
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <br>
+    <div id="app">
+        <component :is="componentName" @change="change"></component>
+    </div>
+
+    <template id="signUpForm">
+        <div class="col-lg-offset-4 col-lg-4">
+			<div class="panel panel-primary" id="formdiv">
+				<div class="panel-heading">
+					<h3 class="panel-title">Vue.js SignUp Form Validation</h3>
+				</div>
+				<div class="panel-body">
+					<form @submit.prevent="submit">
+						<div class="form-group">
+							<label for="email">Email address</label>
+							<input id="email" type="text" v-model="email" placeholder="Email" name="email" class="form-control">
+                            <span v-if="msg.email">{{ msg.email }}</span>
+                        </div>
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input id="password" type="password" v-model="password" placeholder="Password" name="password" class="form-control">
+                            <span v-if="msg.password">{{ msg.password }}</span>
+                        </div>			
+						<div class="form-group">
+							<label for="confirmPassword">Confirm Password</label>
+							<input id="confirmPassword" type="password" v-model="confirmPassword" placeholder="Confirm Password" name="confirmPassword" class="form-control">
+                            <span v-if="msg.confirmPassword">{{ msg.confirmPassword }}</span>
+                        </div>
+						<input type="submit" value="Sign Up" :disabled="disableSubmitButton" class="btn btn-warning">
+						<small><a class="pull-right" href="#" @click="changeToTerms">Terms and Conditions</a></small>
+					</form>
+				</div>
+			</div>
+		</div>
+    </template>
+
+	<template id="termsCondition">
+        <div class="col-lg-offset-4 col-lg-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Terms and Conditions</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-success" @click="backToSignUp">Back To SignUp</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+<script src="script.js"></script>
+	
+</body>
+</html>

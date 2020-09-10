@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <!-- computed -->
+            <!-- <h1>Method = {{ reverseM() }}</h1>
+            <h1>Computed = {{ reverseC }}</h1>
+            <h1>Computed = {{ reverseC }}</h1>
+            <h1>Method = {{ reverseM() }}</h1>
+            <h1>Method = {{ reverseM() }}</h1>
+            <h1>Computed = {{ reverseC }}</h1>             -->
+
+            <!-- watch -->
+<!-- 
+            <input type="text" v-model="km">
+            <input type="text" v-model="m"> -->
+
+            <!-- computed getter setter -->
+
+            <input type="text" v-model="fullName">
+            <h1>{{ firstName }}</h1>
+            <h1>{{ lastName }}</h1>
+
+        </div>
+    </div>
+
+    <script>
+
+        new Vue ({
+            el: '#app',
+
+            data: {
+                message: 'This is Vuejs',
+                km: 0,
+                m: 0,
+                firstName: 'Mazhar',
+                lastName: 'Islam'
+            },
+
+            methods: {
+                // reverseM: function(){
+                //     return this.message.split('').reverse().join('');
+                // }
+
+                reverseM: function(){
+                    return Date.now();
+                }
+            },
+
+            computed: {
+                // reverseC: function(){
+                //     return this.message.split('').reverse().join('');
+                // }
+                
+                reverseC: function(){
+                    return Date.now();
+                },
+
+                fullName: {
+                    // getter
+                    get: function(){
+                        return this.firstName + ' ' + this.lastName;
+                    },
+                    //setter
+                    set: function(name){
+                        var name = name.split(' ');
+
+                        this.firstName = name[0];
+                        //this.lastName = name[1];
+                        this.lastName = name[name.length-1];
+                    }
+                }
+            },
+
+            watch: {
+                km: function(val){
+
+                    this.km = val;
+                    this.m = val*1000;
+                },
+
+                m: function(val){
+                    this.m = val;
+                    this.km = val/1000;
+                }
+            },
+        });
+
+    </script>
+</body>
+</html>

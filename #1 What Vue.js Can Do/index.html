@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <!-- first -->
+            <h4>{{ message }}</h4>
+            <!-- second -->
+            <h4 v-bind:class="className">{{ message }}</h4>
+            <!-- third -->
+            <h6 v-if="show">Third Element</h6>
+            <!-- fourth -->
+            <ol v-show="visible">
+                <li v-for="list in lists">{{ list }}</li>
+            </ol>
+            <!-- fifth -->
+            <ul>
+                <li v-for="list in lists1">{{ list.phone }}</li>
+            </ul>
+            <!-- sixth -->
+            <input type="text" class="form-control" v-model="message">
+            <!-- seventh -->
+            <button v-on:Click="enableList">Show Lists</button>
+        </div>
+    </div>
+
+    <script>
+
+        new Vue ({
+            el: '#app',
+            data: {
+                message : 'This is for Vue Practice only',
+                className : 'alert alert-danger',
+                show : true,
+                lists : ['Facebook', 'Twitter', 'Instagram', 'Whatsapp'],
+                lists1 : [
+                            {name : 'Mazhar'}, 
+                            {phone : '01911913250'}, 
+                            {social : 'Facebook'}, 
+                            {mobile : 'Whatsapp'}
+                        ],
+                visible : false
+            },
+
+            methods: {
+                enableList : function(){
+                    this.visible = true;
+                }
+            },
+        });
+
+    </script>
+</body>
+</html>
